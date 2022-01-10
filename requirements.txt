@@ -1,0 +1,5 @@
+Flask
+scikit-image
+pytesseract
+gunicorn
+Jinja2
