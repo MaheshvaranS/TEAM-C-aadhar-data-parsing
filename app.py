@@ -23,11 +23,14 @@ def upload_file():
         img=Image.open(uploaded_file)
         data=pytesseract.image_to_string(img,lang='eng',config='--psm 6')
         pattern1=re.findall(r'[0-9]+ [0-9]+ [0-9]+',data)  
-        print(pattern1)
+        s = pattern1[0]
+        pat = s[9:]
+        text = ('**** ****' + pat)
+        print(text)
 
         return render_template('index.html',
                                    msg='Successfully processed',
-                                   extracted_text=pattern1)
+                                   extracted_text=text)
 
     return render_template('index.html')
 if __name__ == '__main__':
